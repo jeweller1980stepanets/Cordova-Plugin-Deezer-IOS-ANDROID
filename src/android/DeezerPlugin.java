@@ -33,9 +33,9 @@ public class DeezerPlugin extends CordovaPlugin {
     private final static String METHOD_NAME_PLAYSMARTRADIO = "playSmartRadio";
     
     
-    private final static String METHOD_SEND_TO_JS_OBJ = "window.cordova.plugins.DeezerPlugin.Events";
-    private final static String METHOD_SEND_TO_JS_POSITION_CHANGED = ".on_position";
-    private final static String METHOD_SEND_TO_JS_BUFFER_CHANGED = ".on_buffering";
+    private final static String METHOD_SEND_TO_JS_OBJ = "window.cordova.plugins.DeezerPlugin.events";
+    private final static String METHOD_SEND_TO_JS_POSITION_CHANGED = ".onPosition";
+    private final static String METHOD_SEND_TO_JS_BUFFER_CHANGED = ".onBuffering";
     private  final static String METHOD_CHANGE_POSITION = "changePosition";
     private  final static String METHOD_SET_VOLUME = "setVolume";
     

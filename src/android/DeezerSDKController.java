@@ -96,7 +96,7 @@ public class DeezerSDKController implements DeezerJSListener {
             JSONArray arr = new JSONArray();
             arr.put((int)val1);
             arr.put((int)val2);
-            mPlugin.sendUpdate(".on_change_volume",new Object[]{arr});
+            mPlugin.sendUpdate(".onChangeVolume",new Object[]{arr});
             LOG.d(LOG_TAG,arr.toString());
             return  true;
         }else {
@@ -349,7 +349,7 @@ public class DeezerSDKController implements DeezerJSListener {
         
         if (mPlayerWrapper != null) {
             mPlayerWrapper.pause();
-            mPlugin.sendUpdate(".on_pause",new Object[]{});
+            mPlugin.sendUpdate(".onPause",new Object[]{});
             callbackContext.success();
         } else {
             callbackContext.error("No player to pause");
@@ -488,7 +488,7 @@ public class DeezerSDKController implements DeezerJSListener {
         public void onTrackEnded(final Track track) {
             Log.i(LOG_TAG, "onTrackEnded");
             JSONArray array = new JSONArray();
-            mPlugin.sendUpdate(".on_track_ended",new Object[]{array});
+            mPlugin.sendUpdate(".onTrackEnded",new Object[]{array});
         }
         
         @Override
@@ -542,7 +542,7 @@ public class DeezerSDKController implements DeezerJSListener {
             
             if (mPlugin != null) {
                 mPlugin.sendToJs_positionChanged(position, duration);
-                mPlugin.sendUpdate(".on_player_play",new Object[]{});
+                mPlugin.sendUpdate(".onPlayerPlay",new Object[]{});
             }
         }
     }

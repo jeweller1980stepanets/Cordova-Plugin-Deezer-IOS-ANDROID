@@ -71,7 +71,7 @@
 - (void)pause {
     NSLog(@"DeezerPlayer pause");
     [_player pause];
-    [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.Events.on_pause()"];
+    [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.events.onPause()"];
 }
 
 - (void)play {
@@ -85,8 +85,6 @@
     [_player next];
     
     
-    
-    // [[DeezerPlugin sharedSession] onEvents:@"))))))))))"];
 }
 
 - (void)previosTrack {
@@ -110,7 +108,7 @@
         progress = (double)bufferedBytes / (double)totalBytes;
     }
     
-    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.Events.on_buffering([%f])",progress];
+    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.events.onBuffering([%f])",progress];
     
     [[DeezerPlugin sharedSession].commandDelegate evalJs:str];
 }
@@ -122,19 +120,19 @@
     }
     size_t sz = [_player currentTrackDuration];
     NSLog(@"DeezerPlayer progress %f", progress*sz);
-    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.Events.on_position([%f,%zu])",sz*progress,sz];
+    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.events.onPosition([%f,%zu])",sz*progress,sz];
     
     [[DeezerPlugin sharedSession].commandDelegate evalJs:str];
     if(progress>=0.999 || totalBytes==playedBytes){
-        [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.Events.on_track_ended()"];
+        [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.events.onTrackEnded()"];
     }else{
-        [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.Events.on_player_play()"];
+        [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.events.onPlayerPlay()"];
     }
 }
 
 - (void)player:(DZRPlayer *)player didStartPlayingTrack:(DZRTrack *)track {
     
-    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.Events.on_current_track([123,'%@'])",track];
+    NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.events.onCurrentTrack([123,'%@'])",track];
     
     [[DeezerPlugin sharedSession].commandDelegate evalJs:str];
     NSLog(@"DeezerPlayer didStartPlayinTrack %@",track);

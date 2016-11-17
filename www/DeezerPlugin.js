@@ -106,21 +106,21 @@ playPlaylist:function(a,b,playListId){
              )
     },
     
-    Events : {
-        on_position : function(args){
+    events : {
+        onPosition : function(args){
             //args[0] - position, args[1] - duration
         },
-        on_buffering : function (args){
+        onBuffering : function (args){
             //(args[0] * 100) + " %";
         },
-        on_current_track : function(arg){
+        onCurrentTrack : function(arg){
             alert('!!');
             //arg[1] - Title of track
         },
-        on_player_play : function(){},
-        on_track_ended : function(){},
-        on_pause : function(){},
-        on_change_volume : function(args){
+        onPlayerPlay : function(){},
+        onTrackEnded : function(){},
+        onPause : function(){},
+        onChangeVolume : function(args){
             //args[0] - left value, args[1] - right value
         }
         
