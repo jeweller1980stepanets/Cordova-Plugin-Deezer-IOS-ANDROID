@@ -18,6 +18,8 @@ cordova plugin rm com.procoders.deezer
 ## Supported Platforms
 > - Android
 > - iOS
+
+
 ### Platform specific
 :warning: for iOS platform not implemented method `setVolume()` and `event on_chenge_volume()`
 It will be fixed when this methods will be in Deezer SDK
