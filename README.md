@@ -24,9 +24,9 @@ cordova plugin rm com.procoders.deezer
 :warning: for iOS platform not implemented method `setVolume()` and `event on_chenge_volume()`
 It will be fixed when this methods will be in Deezer SDK
 
-**Example applications**
+**Demo applications**
 > - https://github.com/jeweller1980stepanets/DeezerTestAppIOS for iOS
-> - https://github.com/jeweller1980stepanets/DeezerTestAppAndroid.git for android
+> - https://github.com/jeweller1980stepanets/DeezerTestAppAndroid for android
 
 ## Using the plugin
 > **You must have premium account from Deezer servise for playing music**
