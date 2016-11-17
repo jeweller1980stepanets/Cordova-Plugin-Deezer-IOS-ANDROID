@@ -58,18 +58,18 @@ deezerCordova.setVolume(val1,val2);//val1,val2 - the volume for the left and rig
 
 ## Events
 ```javascript
-on_position : function(args){},//args[0] - position, args[1] - duration
-on_buffering : function (args){},//(args[0] * 100) + " %";
-on_current_track : function(arg){},//arg[1] - Title of track
-on_player_play : function(){},
-on_track_ended : function(){},
-on_pause : function(){},
-on_change_volume : function(args){}//args[0] - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
+onPosition : function(args){},//args[0] - position, args[1] - duration
+onBuffering : function (args){},//(args[0] * 100) + " %";
+onCurrentTrack : function(arg){},//arg[1] - Title of track
+onPlayerPlay : function(){},
+onTrackEnded : function(){},
+onPause : function(){},
+onChangeVolume : function(args){}//args[0] - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
 ```
 
 **Exemle for subscribe:**
 ```javascript
-deezerCordova.Events.on_position = function(args){..`code`..}
+deezerCordova.events.onPosition = function(args){..`code`..}
 ```
 
 ###Authors
