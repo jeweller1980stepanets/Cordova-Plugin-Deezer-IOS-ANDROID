@@ -114,7 +114,11 @@ playPlaylist:function(a,b,playListId){
             //(args[0] * 100) + " %";
         },
         onCurrentTrack : function(arg){
+<<<<<<< HEAD
             alert('!!');
+=======
+           
+>>>>>>> 25cf3268d8dd799d55fe42240bbead0f9ffbd9fb
             //arg[1] - Title of track
         },
         onPlayerPlay : function(){},
