@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.procoders.deezer" version="0.0.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>DeezerPlugin</name>
+    <js-module name="DeezerPlugin" src="www/DeezerPlugin.js">
+        <clobbers target="cordova.plugins.DeezerPlugin" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="DeezerPlugin">
+                <param name="android-package" value="com.procoders.deezer.DeezerPlugin" />
+            </feature>
+        </config-file>
+        
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/DeezerPlugin.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
+        <source-file src="src/android/DeezerJSListener.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
+        <source-file src="src/android/DeezerSDKController.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
+
+<!-- Library files -->
+<source-file
+src="src/android/libs/deezer-sdk-0.10.5.jar"
+target-dir="libs/" />
+<source-file
+src="src/android/libs/armeabi/libdeezer.so"
+target-dir="libs/armeabi/" />
+<source-file
+src="src/android/libs/armeabi-v7a/libdeezer.so"
+target-dir="libs/armeabi-v7a/" />
+<source-file
+src="src/android/libs/x86/libdeezer.so"
+target-dir="libs/x86/" />
+
+<!-- Android manifest permissions -->
+<config-file target="AndroidManifest.xml" parent="/*">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+</config-file>
+
+    </platform>
+    
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="DeezerPlugin">
+                <param name="ios-package" value="DeezerPlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/DeezerPlugin.h" />
+        <source-file src="src/ios/DeezerPlugin.m" />
+        <source-file src="src/ios/DZplayer.h" />
+        <source-file src="src/ios/DZplayer.m" />
+        <framework src= "libicucore.A.dylib" />
+        <framework src="MediaPlayer.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="AudioToolbox.framework"/>
+        <framework src="CoreAudio.framework"/>
+        <resource-file src="src/ios/DZRResources.bundle" />
+        
+        
+        <source-file src="src/ios/libDeezer.a" framework="true"/>
+        
+        <source-file src="src/ios/include/DZRAlbum.h" />
+        <source-file src="src/ios/include/DZRArtist.h" />
+        <source-file src="src/ios/include/DZRCancelable.h" />
+        <source-file src="src/ios/include/DZRComment.h" />
+        <source-file src="src/ios/include/DZREditorial.h" />
+        <source-file src="src/ios/include/DZREpisode.h" />
+        <source-file src="src/ios/include/DZRFolder.h" />
+        <source-file src="src/ios/include/DZRGenericCancelable.h" />
+        <source-file src="src/ios/include/DZRGenre.h" />
+        <source-file src="src/ios/include/DZRManagedRadio.h" />
+        <source-file src="src/ios/include/DZRModel.h" />
+        <source-file src="src/ios/include/DZRNetworkRequest.h" />
+        <source-file src="src/ios/include/DZRObject+Compatibility.h" />
+        <source-file src="src/ios/include/DZRObject.h" />
+        <source-file src="src/ios/include/DZRObjectList.h" />
+        <source-file src="src/ios/include/DZRPlayableArray.h" />
+        <source-file src="src/ios/include/DZRPlayer.h" />
+        <source-file src="src/ios/include/DZRPlaylist.h" />
+        <source-file src="src/ios/include/DZRPodcast.h" />
+        <source-file src="src/ios/include/DZRRadio.h" />
+        <source-file src="src/ios/include/DZRRequestManager.h" />
+        <source-file src="src/ios/include/DZRTrack.h" />
+        <source-file src="src/ios/include/DZRUser.h" />
+        <source-file src="src/ios/include/Deezer+Compatibility.h" />
+        <source-file src="src/ios/include/DeezerConnect+Compatibility.h" />
+        <source-file src="src/ios/include/DeezerConnect.h" />
+        <source-file src="src/ios/include/DeezerRequestDelegate.h" />
+        <source-file src="src/ios/include/NSBundle+DZRBundle.h" />
+        <source-file src="src/ios/include/NSError+DZRModel.h" />
+        <source-file src="src/ios/include/NSError+DZRPlayer.h" />
+
+    </platform>
+</plugin>
