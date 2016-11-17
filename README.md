@@ -72,7 +72,8 @@ on_change_volume : function(args){}//args[0] - the volume for the left channel (
 deezerCordova.Events.on_position = function(args){..`code`..}
 ```
 
-
+###Authors
+- Aleksey Stepanets
 [PlDb]:<http://developers.deezer.com/sdk/ios>
 
 
