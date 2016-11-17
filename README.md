@@ -1,30 +1,36 @@
 
 [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
 
-# Installation
-## At first you must registering you application with [deezer] [PlDb]
+# Cordova Deezer Plugin
+This plugin included all main functions of audio player for Deezer servise
 
-From master
+## Installation
+**At first you must registering you application with** [deezer] [PlDb]
+
+You may install latest version from master
 ```sh
 cordova plugin add https://github.com/jeweller1980stepanets/Cordova-Plugin-Deezer-IOS-ANDROID
 ```
-# Removing the Plugin from project
+### Removing the Plugin from project
 ```sh
 cordova plugin rm com.procoders.deezer
 ```
-# Supported Platforms
+## Supported Platforms
 > - Android
 > - iOS
-
+### Platform specific
+:warning: for iOS platform not implemented method `setVolume()` and `event on_chenge_volume()`
+It will be fixed when this methods will be in Deezer SDK
 # Using the plugin
-### You must have premium account from Deezer servise for playing music
-After device is ready you must:
+> **You must have premium account from Deezer servise for playing music**
+
+After device is ready you must defined the main variable:
 ```javascript
 var deezerCordova = window.cordova.plugins.DeezerPlugin;
 ```
-After this you may use all method in code.
+:thumbsup: *After this you may use all method in your code.*
 
-# Methods
+## Methods
 All methods returning promises, but you can also use standard callback functions.
 
 ```javascript
@@ -42,9 +48,8 @@ deezerCordova.seek(position);//value between 0 - 100%
 deezerCordova.logout();
 deezerCordova.setVolume(val1,val2);//val1,val2 - the volume for the left and right channel (between 0-100%)
 ```
-for iOS platform not implemented method `setVolume()` and `event on_chenge_volume()`
-It will be fixed when this methods will be in Deezer SDK
-# Events
+
+## Events
 ```javascript
 on_position : function(args){},//args[0] - position, args[1] - duration
 on_buffering : function (args){},//(args[0] * 100) + " %";
@@ -55,14 +60,14 @@ on_pause : function(){},
 on_change_volume : function(args){}//args[0] - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
 ```
 
-
-## Exemle for subscribe:
+**Exemle for subscribe:**
 ```javascript
 deezerCordova.Events.on_position = function(args){..`code`..}
 ```
 
 
 [PlDb]:<http://developers.deezer.com/sdk/ios>
+
 
 [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
 
