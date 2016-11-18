@@ -59,7 +59,7 @@ deezerCordova.playAlbum(onSuccess, onError,albumId);
 deezerCordova.playPlaylist(onSuccess, onError,playlistId);
 deezerCordova.playRadio(onSuccess, onError,radioId);
 ```
-***Exemple***
+***Example***
 
 > deezerCordova.playTrack(saccess,error,"129938604");
 
@@ -104,7 +104,7 @@ deezerCordova.events.onChangeVolume = function(args){}
 > *args[0]* - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
 
 
-**Exemle for subscribe:**
+**Examle for subscribe:**
 ```javascript
 deezerCordova.events.onPosition = function(args){..`code`..}
 ```
