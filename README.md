@@ -88,7 +88,7 @@ deezerCordova.events.onPosition = function(args){};
 ```javascript
 deezerCordova.events.onBuffering = function (args){},
 ```
-> (args[0] * 100) + " %"
+> *args[0]* - persent of buferring
 
 ```javascript
 deezerCordova.events.onCurrentTrack = function(arg){},
