@@ -6,6 +6,13 @@ This plugin included all main functions of audio player for Deezer service
 
 ## Installation
 **At first you must registering you application with** [deezer] [PlDb]
+A screen looking like the one just above will be presented to you. If you already created your application, click on its name in the left sidebar (it will appear under MY APPS) and configure it as described later in this section. Otherwise, click the button Create a new Application to create one.
+
+![Image alt](https://github.com/jeweller1980stepanets/image/blob/master/dz1.png)
+
+The process is not finished yet though. You now need to configure the iOS section of your Deezer application to be able to let users log in with their Deezer account. In order to proceed, click the "Edit Application" button in the top right corner of the screen.
+
+![Image alt](https://github.com/jeweller1980stepanets/image/blob/master/dz2.png)
 
 You may install latest version from master
 ```sh
