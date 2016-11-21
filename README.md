@@ -112,7 +112,7 @@ deezerCordova.events.onPosition = function(args){..`code`..}
 ###Authors
 - Aleksey Stepanets
 
-[PlDb]:<http://developers.deezer.com/sdk/ios>
+[PlDb]:<http://developers.deezer.com>
 
 
 [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
