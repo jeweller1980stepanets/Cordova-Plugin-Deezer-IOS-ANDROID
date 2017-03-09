@@ -105,7 +105,15 @@ playPlaylist:function(a,b,playListId){
              [{"offset" : player_position,"index" : 0, "autoplay" : true , "addToQueue" : false, "changePosition" : player_position}, "changePosition"]
              )
     },
-    
+    getToken : function(succes,error){
+                exec(
+                             succes,//function(res){alert(res);},//res - TOKEN//
+                             error,//function(){console.log("error");},
+                             "DeezerPlugin",
+                             "getToken",
+                             []
+                             )
+    },
     events : {
         onPosition : function(args){
             //args[0] - position, args[1] - duration
@@ -122,7 +130,9 @@ playPlaylist:function(a,b,playListId){
         onChangeVolume : function(args){
             //args[0] - left value, args[1] - right value
         }
-        
+        onLogedIn :function(arg){
+            //alert(arg);
+        }
     }
     
 };

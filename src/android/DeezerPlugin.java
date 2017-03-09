@@ -1,4 +1,4 @@
-package com.procoders.deezer.DeezerPlugin;
+package cordova.plugin.deezer;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -38,6 +38,7 @@ public class DeezerPlugin extends CordovaPlugin {
     private final static String METHOD_SEND_TO_JS_BUFFER_CHANGED = ".onBuffering";
     private  final static String METHOD_CHANGE_POSITION = "changePosition";
     private  final static String METHOD_SET_VOLUME = "setVolume";
+    private  final static String METHOD_GET_TOKEN = "getToken";
     
     private CordovaInterface mInterface;
     private CordovaWebView mWebView;
@@ -78,7 +79,11 @@ public class DeezerPlugin extends CordovaPlugin {
         } else if (action.equals(METHOD_TAG_LOGIN)) {
             mListener.login(callbackContext);
             
-        } else if (action.equals(METHOD_TAG_PLAYER_CMD)) {
+        } else if(action.equals(METHOD_GET_TOKEN)){
+            mListener.getToken(callbackContext);
+        }
+        
+        else if (action.equals(METHOD_TAG_PLAYER_CMD)) {
             
             JSONObject json = args.getJSONObject(0);
             String command = json.optString("command");

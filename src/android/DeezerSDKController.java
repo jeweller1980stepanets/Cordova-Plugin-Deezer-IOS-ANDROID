@@ -1,4 +1,4 @@
-package com.procoders.deezer.DeezerPlugin;
+package cordova.plugin.deezer;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -39,14 +39,14 @@ import com.deezer.sdk.player.networkcheck.WifiAndMobileNetworkStateChecker;
 public class DeezerSDKController implements DeezerJSListener {
     
     private final static String LOG_TAG = "DeezerSDKController";
-    
+    public static String token;
     /** Permissions requested on Deezer accounts. */
     private final static String[] PERMISSIONS = new String[] {
-    "basic_access",
+    "basic_access","offline_access"
     };
     
     private Activity mActivity;
-    private DeezerConnect mConnect;
+    private static DeezerConnect mConnect;
     
     private PlayerWrapper mPlayerWrapper;
     private DeezerPlugin mPlugin;
@@ -89,7 +89,9 @@ public class DeezerSDKController implements DeezerJSListener {
         
         
     }
-    
+    public void getToken(CallbackContext context){
+        context.success(this.token);
+    }
     @Override
     public boolean setVolume(float val1, float val2) {
         if(mPlayerWrapper.setStereoVolume(val1,val2)){
@@ -402,10 +404,13 @@ public class DeezerSDKController implements DeezerJSListener {
         @Override
         public void onComplete(final Bundle bundle) {
             Log.i(LOG_TAG, "Logged In!");
-            
+            DeezerSDKController.token = String.valueOf(bundle.get("access_token"));
             JSONObject dict = new JSONObject();
+            JSONArray array = new JSONArray();
+            array.put("hueta");
+            mPlugin.sendUpdate(".onLogedIn",new Object[]{array});
             for (String key : bundle.keySet()) {
-                Log.d(LOG_TAG, key + " -> " + bundle.getString(key));
+                Log.i(LOG_TAG, key + " -> " + bundle.getString(key));
                 
                 try {
                     dict.put(key, bundle.getString(key));
@@ -425,22 +430,11 @@ public class DeezerSDKController implements DeezerJSListener {
         }
         
         @Override
-        public void onDeezerError(final DeezerError e) {
-            Log.e(LOG_TAG, "onDeezerError", e);
-            mContext.error("DeezerError");
+        public void onException(Exception e) {
+            
         }
         
-        @Override
-        public void onError(final DialogError e) {
-            Log.e(LOG_TAG, "onError", e);
-            mContext.error("Error");
-        }
         
-        @Override
-        public void onOAuthException(final OAuthException e) {
-            Log.e(LOG_TAG, "onOAuthException", e);
-            mContext.error("OAuthException");
-        }
     }
     
     private class PlayerListener implements RadioPlayerListener {
@@ -492,35 +486,18 @@ public class DeezerSDKController implements DeezerJSListener {
         }
         
         @Override
+        public void onRequestException(Exception e, Object o) {
+            
+        }
+        
+        @Override
         public void onAllTracksEnded() {
             Log.i(LOG_TAG, "onAllTracksEnded");
         }
         
-        @Override
-        public void onRequestDeezerError(final DeezerError e, final Object request) {
-            Log.e(LOG_TAG, "onRequestDeezerError", e);
-        }
         
-        @Override
-        public void onRequestIOException(final IOException e, final Object request) {
-            Log.e(LOG_TAG, "onRequestIOException", e);
-        }
         
-        @Override
-        public void onRequestJSONException(final JSONException e, final Object request) {
-            Log.e(LOG_TAG, "onRequestJSONException", e);
-        }
         
-        @Override
-        public void onRequestMalformedURLException(final MalformedURLException e,
-                                                   final Object request) {
-            Log.e(LOG_TAG, "onRequestMalformedURLException", e);
-        }
-        
-        @Override
-        public void onRequestOAuthException(final OAuthException e, final Object request) {
-            Log.e(LOG_TAG, "onRequestMalformedURLException", e);
-        }
         
         @Override
         public void onTooManySkipsException() {
