@@ -49,6 +49,14 @@ static DeezerPlugin* _sharedSessionManager = nil;
 -(void)logout:(CDVInvokedUrlCommand *)command{
     [self logOut];
 }
+-(void)getToken:(CDVInvokedUrlCommand*)command{
+    NSLog(@"DeezerPlugin getToken %@",[_deezerConnect accessToken]);
+    CDVPluginResult *pluginResult;
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[_deezerConnect accessToken]];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    
+}
 -(void)doAction:(CDVInvokedUrlCommand*)command
 {
     NSMutableDictionary *arr = [NSMutableDictionary dictionary];
@@ -180,6 +188,7 @@ static DeezerPlugin* _sharedSessionManager = nil;
     if ([_connectionDelegate respondsToSelector:@selector(deezerSessionDidConnect)]) {
         [_connectionDelegate deezerSessionDidConnect];
     }
+    [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onLogedIn(['hueta'])"];
 }
 
 - (void)deezerDidNotLogin:(BOOL)cancelled {

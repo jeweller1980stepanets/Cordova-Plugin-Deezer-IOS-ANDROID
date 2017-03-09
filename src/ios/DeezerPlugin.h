@@ -30,6 +30,7 @@
 -(void) onEvents:(NSString *)array;
 +(void)bridge:(NSArray *)array;
 -(void)seek:(CDVInvokedUrlCommand*)command;
+-(void)getToken:(CDVInvokedUrlCommand*)command;
 
 -(void)doAction:(CDVInvokedUrlCommand*)command;
 -(void)playerControl:(CDVInvokedUrlCommand*)command;
