@@ -1,4 +1,4 @@
-package cordova.plugin.deezer;
+package com.procoders.deezer.DeezerPlugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -79,10 +79,9 @@ public class DeezerPlugin extends CordovaPlugin {
         } else if (action.equals(METHOD_TAG_LOGIN)) {
             mListener.login(callbackContext);
             
-        } else if(action.equals(METHOD_GET_TOKEN)){
+        }else if(action.equals(METHOD_GET_TOKEN)){
             mListener.getToken(callbackContext);
         }
-        
         else if (action.equals(METHOD_TAG_PLAYER_CMD)) {
             
             JSONObject json = args.getJSONObject(0);

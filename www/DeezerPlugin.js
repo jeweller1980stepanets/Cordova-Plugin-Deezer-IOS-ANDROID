@@ -106,14 +106,14 @@ playPlaylist:function(a,b,playListId){
              )
     },
     getToken : function(succes,error){
-                exec(
-                             succes,//function(res){alert(res);},//res - TOKEN//
-                             error,//function(){console.log("error");},
-                             "DeezerPlugin",
-                             "getToken",
-                             []
-                             )
-    },
+                    exec(
+                                 succes,//function(res){alert(res);},//res - TOKEN//
+                                 error,//function(){console.log("error");},
+                                 "DeezerPlugin",
+                                 "getToken",
+                                 []
+                                 )
+        },
     events : {
         onPosition : function(args){
             //args[0] - position, args[1] - duration
@@ -131,8 +131,8 @@ playPlaylist:function(a,b,playListId){
             //args[0] - left value, args[1] - right value
         },
         onLogedIn :function(arg){
-            //alert(arg);
-        }
+                    alert(arg);
+                }
     }
     
 };

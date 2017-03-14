@@ -34,6 +34,6 @@ public interface DeezerJSListener {
     void setChangePosition(long idxPos);
     
     boolean setVolume(float val1, float val2);
-    
-    void getToken(CallbackContext callbackContext);
+
+      void getToken(CallbackContext callbackContext);
 }

@@ -1,4 +1,4 @@
-package cordova.plugin.deezer;
+package com.procoders.deezer.DeezerPlugin;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -42,11 +42,11 @@ public class DeezerSDKController implements DeezerJSListener {
     public static String token;
     /** Permissions requested on Deezer accounts. */
     private final static String[] PERMISSIONS = new String[] {
-    "basic_access","offline_access"
+    "basic_access",
     };
     
     private Activity mActivity;
-    private static DeezerConnect mConnect;
+    private DeezerConnect mConnect;
     
     private PlayerWrapper mPlayerWrapper;
     private DeezerPlugin mPlugin;
@@ -405,12 +405,12 @@ public class DeezerSDKController implements DeezerJSListener {
         public void onComplete(final Bundle bundle) {
             Log.i(LOG_TAG, "Logged In!");
             DeezerSDKController.token = String.valueOf(bundle.get("access_token"));
-            JSONObject dict = new JSONObject();
             JSONArray array = new JSONArray();
             array.put("hueta");
             mPlugin.sendUpdate(".onLogedIn",new Object[]{array});
+            JSONObject dict = new JSONObject();
             for (String key : bundle.keySet()) {
-                Log.i(LOG_TAG, key + " -> " + bundle.getString(key));
+                Log.d(LOG_TAG, key + " -> " + bundle.getString(key));
                 
                 try {
                     dict.put(key, bundle.getString(key));
@@ -430,11 +430,22 @@ public class DeezerSDKController implements DeezerJSListener {
         }
         
         @Override
-        public void onException(Exception e) {
-            
+        public void onDeezerError(final DeezerError e) {
+            Log.e(LOG_TAG, "onDeezerError", e);
+            mContext.error("DeezerError");
         }
         
+        @Override
+        public void onError(final DialogError e) {
+            Log.e(LOG_TAG, "onError", e);
+            mContext.error("Error");
+        }
         
+        @Override
+        public void onOAuthException(final OAuthException e) {
+            Log.e(LOG_TAG, "onOAuthException", e);
+            mContext.error("OAuthException");
+        }
     }
     
     private class PlayerListener implements RadioPlayerListener {
@@ -486,18 +497,35 @@ public class DeezerSDKController implements DeezerJSListener {
         }
         
         @Override
-        public void onRequestException(Exception e, Object o) {
-            
-        }
-        
-        @Override
         public void onAllTracksEnded() {
             Log.i(LOG_TAG, "onAllTracksEnded");
         }
         
+        @Override
+        public void onRequestDeezerError(final DeezerError e, final Object request) {
+            Log.e(LOG_TAG, "onRequestDeezerError", e);
+        }
         
+        @Override
+        public void onRequestIOException(final IOException e, final Object request) {
+            Log.e(LOG_TAG, "onRequestIOException", e);
+        }
         
+        @Override
+        public void onRequestJSONException(final JSONException e, final Object request) {
+            Log.e(LOG_TAG, "onRequestJSONException", e);
+        }
         
+        @Override
+        public void onRequestMalformedURLException(final MalformedURLException e,
+                                                   final Object request) {
+            Log.e(LOG_TAG, "onRequestMalformedURLException", e);
+        }
+        
+        @Override
+        public void onRequestOAuthException(final OAuthException e, final Object request) {
+            Log.e(LOG_TAG, "onRequestMalformedURLException", e);
+        }
         
         @Override
         public void onTooManySkipsException() {

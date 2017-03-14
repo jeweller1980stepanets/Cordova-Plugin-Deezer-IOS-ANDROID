@@ -49,6 +49,7 @@ static DeezerPlugin* _sharedSessionManager = nil;
 -(void)logout:(CDVInvokedUrlCommand *)command{
     [self logOut];
 }
+
 -(void)getToken:(CDVInvokedUrlCommand*)command{
     NSLog(@"DeezerPlugin getToken %@",[_deezerConnect accessToken]);
     CDVPluginResult *pluginResult;
@@ -57,6 +58,7 @@ static DeezerPlugin* _sharedSessionManager = nil;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     
 }
+
 -(void)doAction:(CDVInvokedUrlCommand*)command
 {
     NSMutableDictionary *arr = [NSMutableDictionary dictionary];
