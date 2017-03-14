@@ -16,28 +16,28 @@
         <source-file src="src/android/DeezerPlugin.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
         <source-file src="src/android/DeezerJSListener.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
         <source-file src="src/android/DeezerSDKController.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
-
-<!-- Library files -->
-<source-file
-src="src/android/libs/deezer-sdk-0.10.5.jar"
-target-dir="libs/" />
-<source-file
-src="src/android/libs/armeabi/libdeezer.so"
-target-dir="libs/armeabi/" />
-<source-file
-src="src/android/libs/armeabi-v7a/libdeezer.so"
-target-dir="libs/armeabi-v7a/" />
-<source-file
-src="src/android/libs/x86/libdeezer.so"
-target-dir="libs/x86/" />
-
-<!-- Android manifest permissions -->
-<config-file target="AndroidManifest.xml" parent="/*">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-</config-file>
-
+        
+        <!-- Library files -->
+        <source-file
+        src="src/android/libs/deezer-sdk-0.10.5.jar"
+        target-dir="libs/" />
+        <source-file
+        src="src/android/libs/armeabi/libdeezer.so"
+        target-dir="libs/armeabi/" />
+        <source-file
+        src="src/android/libs/armeabi-v7a/libdeezer.so"
+        target-dir="libs/armeabi-v7a/" />
+        <source-file
+        src="src/android/libs/x86/libdeezer.so"
+        target-dir="libs/x86/" />
+        
+        <!-- Android manifest permissions -->
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+        </config-file>
+        
     </platform>
     
     <platform name="ios">
@@ -90,6 +90,6 @@ target-dir="libs/x86/" />
         <source-file src="src/ios/include/NSBundle+DZRBundle.h" />
         <source-file src="src/ios/include/NSError+DZRModel.h" />
         <source-file src="src/ios/include/NSError+DZRPlayer.h" />
-
+        
     </platform>
 </plugin>

@@ -129,7 +129,7 @@ playPlaylist:function(a,b,playListId){
         onPause : function(){},
         onChangeVolume : function(args){
             //args[0] - left value, args[1] - right value
-        }
+        },
         onLogedIn :function(arg){
             //alert(arg);
         }
