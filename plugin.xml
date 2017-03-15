@@ -43,7 +43,7 @@
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="DeezerPlugin">
-                <param name="ios-package" value="DeezerPlugin" />
+                <param name="ios-package" value="DeezerPlugin" onload="true"/>
             </feature>
         </config-file>
         <source-file src="src/ios/DeezerPlugin.h" />
