@@ -1,4 +1,4 @@
-package com.procoders.deezer.DeezerPlugin;
+package cordova.plugin.deezer;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;

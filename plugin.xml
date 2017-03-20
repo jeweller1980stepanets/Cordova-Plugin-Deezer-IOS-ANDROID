@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com.procoders.deezer" version="0.0.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova.plugin.deezer" version="0.0.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>DeezerPlugin</name>
     <js-module name="DeezerPlugin" src="www/DeezerPlugin.js">
         <clobbers target="cordova.plugins.DeezerPlugin" />
@@ -8,14 +8,14 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="DeezerPlugin">
-                <param name="android-package" value="com.procoders.deezer.DeezerPlugin" />
+                <param name="android-package" value="cordova.plugin.deezer.DeezerPlugin" />
             </feature>
         </config-file>
         
         <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/DeezerPlugin.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
-        <source-file src="src/android/DeezerJSListener.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
-        <source-file src="src/android/DeezerSDKController.java" target-dir="src/com/procoders/deezer/DeezerPlugin" />
+        <source-file src="src/android/DeezerPlugin.java" target-dir="src/cordova/plugin/deezer/DeezerPlugin" />
+        <source-file src="src/android/DeezerJSListener.java" target-dir="src/cordova/plugin/deezer/DeezerPlugin" />
+        <source-file src="src/android/DeezerSDKController.java" target-dir="src/cordova/plugin/deezer/DeezerPlugin" />
         
         <!-- Library files -->
         <source-file
@@ -43,7 +43,7 @@
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="DeezerPlugin">
-                <param name="ios-package" value="DeezerPlugin" onload="true"/>
+                <param name="ios-package" value="DeezerPlugin" />
             </feature>
         </config-file>
         <source-file src="src/ios/DeezerPlugin.h" />

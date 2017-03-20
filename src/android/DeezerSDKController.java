@@ -1,4 +1,4 @@
-package com.procoders.deezer.DeezerPlugin;
+package cordova.plugin.deezer;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

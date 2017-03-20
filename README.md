@@ -13,7 +13,7 @@ cordova plugin add https://github.com/jeweller1980stepanets/Cordova-Plugin-Deeze
 ```
 ### Removing the Plugin from project
 ```sh
-cordova plugin rm com.procoders.deezer
+cordova plugin rm cordova.plugin.deezer
 ```
 ## Supported Platforms
 > - Android
