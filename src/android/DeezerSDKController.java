@@ -427,6 +427,9 @@ public class DeezerSDKController implements DeezerJSListener {
         public void onCancel() {
             Log.d(LOG_TAG, "onCancel");
             mContext.error("cancel");
+            JSONArray array = new JSONArray();
+            array.put("did not login");
+            mPlugin.sendUpdate(".onDidNotLogin",new Object[]{array});
         }
         
         @Override

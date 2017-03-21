@@ -132,7 +132,10 @@ playPlaylist:function(a,b,playListId){
         },
         onLogedIn :function(arg){
                     alert(arg);
-                }
+        },
+        onDidNotLogin:function(arg){
+               alert(arg);
+        }
     }
     
 };

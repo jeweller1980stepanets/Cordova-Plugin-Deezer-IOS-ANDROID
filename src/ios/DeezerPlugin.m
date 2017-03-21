@@ -195,6 +195,7 @@ static DeezerPlugin* _sharedSessionManager = nil;
 
 - (void)deezerDidNotLogin:(BOOL)cancelled {
     NSLog(@"Deezer Did not login : %@", cancelled ? @"Cancelled" : @"Not Cancelled");
+     [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onDidNotLogin(['Did not login'])"];
 }
 
 - (void)deezerDidLogout {
