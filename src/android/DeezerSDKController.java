@@ -42,7 +42,7 @@ public class DeezerSDKController implements DeezerJSListener {
     public static String token;
     /** Permissions requested on Deezer accounts. */
     private final static String[] PERMISSIONS = new String[] {
-    "basic_access",
+    "basic_access","email","offline_access","manage_library","manage_community","delete_library","listening_history"
     };
     
     private Activity mActivity;

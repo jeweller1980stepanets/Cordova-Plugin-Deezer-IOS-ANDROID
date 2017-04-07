@@ -38,6 +38,12 @@ static DeezerPlugin* _sharedSessionManager = nil;
 -(void)login:(CDVInvokedUrlCommand *)command{
     NSMutableArray *perm = [NSMutableArray array];
     [perm addObject:DeezerConnectPermissionBasicAccess];
+    [perm addObject:DeezerConnectPermissionEmail];
+    [perm addObject:DeezerConnectPermissionOfflineAccess];
+    [perm addObject:DeezerConnectPermissionManageLibrary];
+    [perm addObject:DeezerConnectPermissionDeleteLibrary];
+    [perm addObject:DeezerConnectPermissionListeningHistory];
+    
     [_deezerConnect authorize:perm];
     
     if( [[DZPlayer sharedPlayer] init]){
