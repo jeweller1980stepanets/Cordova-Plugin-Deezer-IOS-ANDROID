@@ -1,11 +1,10 @@
-
-[![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
+ [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
 
 # Cordova Deezer Plugin
 This plugin included all main functions of audio player for Deezer servise
 
 ## Installation
-**At first you must registering you application with** [deezer] [PlDb]
+**At first you must registering you application with** [Deezer](http://developers.deezer.com/sdk/ios)
 
 You may install latest version from master
 ```sh
@@ -21,7 +20,7 @@ cordova plugin rm cordova.plugin.deezer
 
 
 ### Platform specific
-:warning: for iOS platform not implemented method `setVolume()` and `event on_chenge_volume()`
+:warning: for iOS platform not implemented method `setVolume()` and `event onChengeVolume()`
 It will be fixed when this methods will be in Deezer SDK
 
 **Demo applications**
@@ -58,24 +57,25 @@ deezerCordova.setVolume(val1,val2);//val1,val2 - the volume for the left and rig
 
 ## Events
 ```javascript
-on_position : function(args){},//args[0] - position, args[1] - duration
-on_buffering : function (args){},//(args[0] * 100) + " %";
-on_current_track : function(arg){},//arg[1] - Title of track
-on_player_play : function(){},
-on_track_ended : function(){},
-on_pause : function(){},
-on_change_volume : function(args){}//args[0] - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
+onPosition : function(args){},//args[0] - position, args[1] - duration
+onBuffering : function (args){},//(args[0] * 100) + " %";
+onCurrentTrack : function(arg){},//arg[1] - Title of track
+onPlayerPlay : function(){},
+onTrackEnded : function(){},
+onPause : function(){},
+onChangeVolume : function(args){}//args[0] - the volume for the left channel (between 0 and 100%), args[1] -  the volume for the right channel (between 0 and 100%)
+onError: function(args){}//args[0] - error message
 ```
 
 **Exemle for subscribe:**
 ```javascript
-deezerCordova.Events.on_position = function(args){..`code`..}
+deezerCordova.Events.onPosition = function(args){..`code`..}
 ```
 
-###Authors
+
+### Authors
 - Aleksey Stepanets
-[PlDb]:<http://developers.deezer.com/sdk/ios>
+
 
 
 [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
-

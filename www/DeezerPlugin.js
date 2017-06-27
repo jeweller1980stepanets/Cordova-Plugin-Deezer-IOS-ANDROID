@@ -101,19 +101,27 @@ playPlaylist:function(a,b,playListId){
              function(){},
              "DeezerPlugin",
              "playerControl",
-             //[player_position]
              [{"offset" : player_position,"index" : 0, "autoplay" : true , "addToQueue" : false, "changePosition" : player_position}, "changePosition"]
              )
     },
     getToken : function(succes,error){
                     exec(
-                                 succes,//function(res){alert(res);},//res - TOKEN//
-                                 error,//function(){console.log("error");},
-                                 "DeezerPlugin",
-                                 "getToken",
-                                 []
-                                 )
-        },
+                        succes,//function(res){alert(res);},//res - TOKEN//
+                        error,//function(){console.log("error");},
+                        "DeezerPlugin",
+                        "getToken",
+                        []
+                    )
+    },
+    setVolume: function(val1,val2){
+        exec(
+            null,
+            null,
+            "DeezerPlugin",
+            "playerControl",
+            [{"setVolume1" : val1, "setVolume2" : val2},"setVolume"]
+        )
+    },
     events : {
         onPosition : function(args){
             //args[0] - position, args[1] - duration
