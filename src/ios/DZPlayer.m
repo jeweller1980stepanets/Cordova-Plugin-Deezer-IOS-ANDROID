@@ -32,6 +32,7 @@
     // 5
     self.trackRequest = [DZRTrack objectWithIdentifier:identifier requestManager:_manager callback:^(DZRTrack *track, NSError *error) {
         if(error){
+            [[DeezerPlugin sharedSession].commandDelegate evalJs:@"window.cordova.plugins.DeezerPlugin.events.onError(['error'])"];
             NSLog(@"ERROR %@",error );
         }else{
             NSLog(@"player play %@",track );
@@ -40,6 +41,8 @@
     }];
     
 }
+
+
 - (void)playPlaylistWithIdentifier:(NSString*)identifier
 {
     [self.trackRequest cancel];                                           // 5
@@ -99,9 +102,13 @@
 }
 
 #pragma mark DZRPlayerDelegate
-
+- (void)player:(DZRPlayer *)player didEncounterError:(NSError *)error{
+    if(error){
+        NSLog(@"error %@",error);
+    }
+}
 - (void)player:(DZRPlayer *)player didBuffer:(long long)bufferedBytes outOf:(long long)totalBytes {
-    NSLog(@"DeezerPlayer didBuffer %lld",totalBytes);
+    //NSLog(@"DeezerPlayer didBuffer %lld",totalBytes);
     
     float progress = 0.0;
     if (totalBytes != 0) {
@@ -119,7 +126,7 @@
         progress = (double)playedBytes / (double)totalBytes;
     }
     size_t sz = [_player currentTrackDuration];
-    NSLog(@"DeezerPlayer progress %f", progress*sz);
+    ///NSLog(@"DeezerPlayer progress %f", progress*sz);
     NSMutableString *str = [NSMutableString stringWithFormat:@"window.cordova.plugins.DeezerPlugin.events.onPosition([%f,%zu])",sz*progress,sz];
     
     [[DeezerPlugin sharedSession].commandDelegate evalJs:str];

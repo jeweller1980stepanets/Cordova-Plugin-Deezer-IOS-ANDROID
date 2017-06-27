@@ -135,6 +135,9 @@ playPlaylist:function(a,b,playListId){
         },
         onDidNotLogin:function(arg){
                alert(arg);
+        },
+        onError:function(arg){
+            alert(arg[0]);
         }
     }
     

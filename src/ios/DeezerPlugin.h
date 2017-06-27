@@ -27,8 +27,6 @@
 -(void)prev:(CDVInvokedUrlCommand *)command;
 -(void)play:(CDVInvokedUrlCommand *)command;
 -(void)pause:(CDVInvokedUrlCommand *)command;
--(void) onEvents:(NSString *)array;
-+(void)bridge:(NSArray *)array;
 -(void)seek:(CDVInvokedUrlCommand*)command;
 -(void)getToken:(CDVInvokedUrlCommand*)command;
 

@@ -196,12 +196,12 @@ static DeezerPlugin* _sharedSessionManager = nil;
     if ([_connectionDelegate respondsToSelector:@selector(deezerSessionDidConnect)]) {
         [_connectionDelegate deezerSessionDidConnect];
     }
-    [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onLogedIn(['hueta'])"];
+    [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onLogedIn(['logedIn'])"];
 }
 
 - (void)deezerDidNotLogin:(BOOL)cancelled {
     NSLog(@"Deezer Did not login : %@", cancelled ? @"Cancelled" : @"Not Cancelled");
-     [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onDidNotLogin(['Did not login'])"];
+    [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onDidNotLogin(['Did not login'])"];
 }
 
 - (void)deezerDidLogout {
@@ -219,23 +219,13 @@ static DeezerPlugin* _sharedSessionManager = nil;
      }*/
     return _sharedSessionManager;
 }
--(void)onEvents :(NSString *)array
-{
-    NSLog(@"%@",array);
-    [self.commandDelegate evalJs:@"alert('111')"];
-    /* NSMutableString *str = [NSMutableString stringWithFormat:@"DeezerPlugin.Events."];
-     [self.commandDelegate evalJs:str];*/
-}
-+(void)bridge:(NSArray *)array{
-    [[DeezerPlugin sharedSession]onEvents:@"!!!!!!!!!"];
-    
-}
+
 - (void)player:(DZRPlayer *)player didPlay:(long long)playedBytes outOf:(long long)totalBytes {
     float progress = 0.0;
     if (totalBytes != 0) {
         progress = (double)playedBytes / (double)totalBytes;
     }
-    NSLog(@"DeezerPlayer progress %f", progress);
+    
 }
 @end
 
