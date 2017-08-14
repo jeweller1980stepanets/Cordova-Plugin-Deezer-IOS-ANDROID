@@ -51,6 +51,7 @@ deezerCordova.pause();
 deezerCordova.next();
 deezerCordova.prev();
 deezerCordova.seek(position);//value between 0 - 100%
+deezerCordova.seek(position);//value in seconds
 deezerCordova.logout();
 deezerCordova.setVolume(val1,val2);//val1,val2 - the volume for the left and right channel (between 0-100%)
 ```

@@ -104,6 +104,16 @@ playPlaylist:function(a,b,playListId){
              [{"offset" : player_position,"index" : 0, "autoplay" : true , "addToQueue" : false, "changePosition" : player_position}, "changePosition"]
              )
     },
+    seekTo : function(player_position){
+        exec(
+            function(){},
+            function(){},
+            "DeezerPlugin",
+            "playerControl",
+                    //[player_position]
+            [{"offset" : player_position,"index" : 0, "autoplay" : true , "addToQueue" : false, "changePositionTo" : player_position}, "changePositionTo"]
+            )
+    },
     getToken : function(succes,error){
                     exec(
                         succes,//function(res){alert(res);},//res - TOKEN//

@@ -92,6 +92,8 @@ static DeezerPlugin* _sharedSessionManager = nil;
         [self playTracks:command];
     }else if ([myCommand isEqual:@"changePosition"] ){
         [self seek:command];
+    }else if ([myCommand isEqual:@"changePositionTo"] ){
+        [self seekTo:command];
     }
 }
 -(void)playTracks:(CDVInvokedUrlCommand *)command{
@@ -135,6 +137,17 @@ static DeezerPlugin* _sharedSessionManager = nil;
     [arr setDictionary:[command.arguments objectAtIndex:0]];
     NSTimeInterval offset = ((NSNumber *)[arr valueForKey:@"offset"]).doubleValue;
     [[DZPlayer sharedPlayer].player setProgress:offset/100];
+}
+-(void)seekTo:(CDVInvokedUrlCommand*)command
+{
+        NSMutableDictionary *arr = [NSMutableDictionary dictionary];
+        [arr setDictionary:[command.arguments objectAtIndex:0]];
+        NSTimeInterval offset = ((NSNumber *)[arr valueForKey:@"offset"]).doubleValue;
+    if(offset > 0 && offset < [[DZPlayer sharedPlayer].player currentTrackDuration]){
+        [[DZPlayer sharedPlayer].player setProgress:offset/[[DZPlayer sharedPlayer].player currentTrackDuration]];
+    } else {
+        [[self commandDelegate] evalJs:@"window.cordova.plugins.DeezerPlugin.events.onError(['incorrect duration'])"];
+    }
 }
 #pragma mark - Connection
 /**************\
