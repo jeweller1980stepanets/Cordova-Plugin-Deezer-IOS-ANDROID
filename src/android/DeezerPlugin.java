@@ -37,6 +37,7 @@ public class DeezerPlugin extends CordovaPlugin {
     private final static String METHOD_SEND_TO_JS_POSITION_CHANGED = ".onPosition";
     private final static String METHOD_SEND_TO_JS_BUFFER_CHANGED = ".onBuffering";
     private  final static String METHOD_CHANGE_POSITION = "changePosition";
+    private  final static String METHOD_CHANGE_POSITION_TO = "changePositionTo";
     private  final static String METHOD_SET_VOLUME = "setVolume";
     private  final static String METHOD_GET_TOKEN = "getToken";
 
@@ -145,6 +146,10 @@ public class DeezerPlugin extends CordovaPlugin {
                 final  long idxPos = json.optLong("changePosition",0);
 
                 mListener.setChangePosition(idxPos);
+            }else if(method.equals(METHOD_CHANGE_POSITION_TO)){
+                final  long idxPos = json.optLong("changePositionTo",0);
+
+                mListener.setChangePositionTo(idxPos);
             }else if(method.equals(METHOD_SET_VOLUME)){
                 final  float val1 = (float)json.optDouble("setVolume1");
                 final  float val2 =(float)json.optDouble("setVolume2");

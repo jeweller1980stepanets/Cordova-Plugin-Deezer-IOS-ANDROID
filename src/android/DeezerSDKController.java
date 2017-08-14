@@ -92,6 +92,16 @@ public class DeezerSDKController implements DeezerJSListener {
 
 
     }
+    public  void setChangePositionTo(long idx){
+        long x =idx/mPlayerWrapper.getTrackDuration();
+        if(x > 0){
+            mPlayerWrapper.seek(x);
+        } else {
+            JSONArray array = new JSONArray();
+            array.put("incorrect duration");
+            mPlugin.sendUpdate(".onError",new Object[]{array});
+        }
+    }
     public void getToken(CallbackContext context){
         context.success(this.token);
     }
